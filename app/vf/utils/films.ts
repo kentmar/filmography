@@ -32,8 +32,10 @@ export class Film {
   }
 }
 
+const filmInfoBaseUrl = import.meta.env.VITE_FILM_INFO_BASE_URL ?? '/json'
+
 const loadCellFilmBatch = async (batchIndex: number) => {
-  const url = `${import.meta.env.VITE_FILM_INFO_BASE_URL}/${batchIndex}.json`
+  const url = `${filmInfoBaseUrl}/${batchIndex}.json`
   try {
     const response = await fetch(url)
     if (!response.ok) {
